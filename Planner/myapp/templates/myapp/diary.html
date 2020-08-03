@@ -1,0 +1,39 @@
+
+{% extends 'myapp/header.html' %}
+{% block title %}Sign In{% endblock title %}
+{% block body %}
+
+<head>
+	<link rel="stylesheet" href='/static/css/diary.css'>
+</head>	
+<body>
+	
+	
+	<section class="section">
+		<div  class="container">
+			<div class="center">
+				<form method="POST" action = "{%url 'diary'%}">
+				
+					<div class="field">
+						<div class="control">
+							<textarea rows = 10 cols = 60 class = "textarea" name="context" placeholder = "What's on your mind"></textarea>
+
+					
+					 
+						</div>
+					</div>
+					<div class="field is-grouped-right">
+						<div class="control">
+							<button  class="btn btn-primary" class="button is-link">Submit</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+	<footer class="footer">
+	</footer>
+
+	
+</body>
+{% endblock body %}

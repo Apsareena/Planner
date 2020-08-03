@@ -1,0 +1,77 @@
+{% extends 'myapp/header.html' %}
+{% block title %}Sign In{% endblock title %}
+
+{% load static %}
+
+<head>
+	<meta charset="UTF-8">
+	<title>Todo</title>
+	<meta charset="UTF-8"/>
+	<meta name="viewport"
+	content = "width=device-width, initial-scale=1"/>
+	<style>
+		body
+		{
+			background-image: url('/static/images/todo.jpg');
+			background-size: cover;
+			background-repeat: no-repeat;
+			height:100%;
+			width:100%;
+		}	
+			
+		
+    </style>
+	
+</head>
+{% block body %}
+{% block content %}
+<body>
+	<div class="container">
+		<div style="margin:auto; margin-top:30px; padding: 100px">
+		
+
+		
+			<div class="row mt-4">
+				<div class="col">
+					<h2 style="color: white;">Add Task</h2>
+						<form action="/myapp/todo/" method="POST" class="form-inline">
+							<input type="text" name="content" class="form-control mb-2 mr-sm-2" placeholder = "type here...">
+							<button type="submit" value = "add" class = "btn btn-primary mb-2">Submit</button>			
+						</form>
+
+				</div>
+			</div>	
+			
+		
+		
+	
+			<div class="row mt-4">
+				<div class="col">
+					<ul class="list-group">
+
+				{% for todo_item in todo_items %}
+						<li class="list-group-item">
+					
+					{% csrf_token %}
+
+					{{ todo_item.task }}
+
+							<div class="float-right">
+						
+								<a href="{%url 'delete_todo' todo_item.id %}" class="btn btn-sm btn-danger">Delete</a>
+						
+					
+							</div>
+						</li>
+				{% endfor %}
+					</ul>
+				</div>
+			</div>
+	
+		{% endblock content %}
+		</div>
+	</div>	
+	
+</body>
+
+{% endblock body %}

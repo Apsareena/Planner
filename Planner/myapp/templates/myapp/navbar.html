@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Navbar</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+</head>
+<body>
+    <div id="main">
+      <nav>
+        
+        {% if not user.is_authenticated %}
+        <ul>
+          <li class="nav-item">
+        <a class="nav-link" href="{%url 'signup'%}">signup</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'signin'%}">signin</a>
+      </li>
+          
+        </ul>
+        {% else %}
+        <ul>
+          
+          
+          <li class="nav-item">
+        <a class='nav-link' href="#">{{request.user}}</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'todo'%}">TodoList</a>
+      </li>
+      
+      <li>
+        <a class="nav-link" href="{%url 'diaryhome' %}">Diary</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'signout'%}">Signout</a>
+      </li>
+        </ul>
+        
+      </nav>
+      {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+			
+{% extends 'myapp/header.html' %}
+{% block title %}Sign In{% endblock title %}
+
+{% load static %}
+<head>
+	<link rel="stylesheet" href='/static/css/diary.css'>
+	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+ 
+	<title>Dear Diary</title>
+</head>
+{% block body %}
+<body>
+
+
+	
+		<div class="container">
+			<div style="margin:auto; margin-top: 30px; padding: 100px">
+				<h2><a href="{%url 'diary'%}">Add a new entry</a></h2>
+			
+			
+			
+			{% for k in entry %}
+			
+				
+				<div class="media-content">
+					<div class="content">
+						<p style='color:white'>
+							<strong>{{ k.date_posted }}</strong>
+						</br>
+							{{ k.diary}}
+						</p>
+					</div>
+				</div>
+			
+
+				
+			
+			
+			{% endfor %}
+			
+			</div>
+		</div>
+</body>	
+			
+		
+{% endblock body %}			
+			
+
+			
+		

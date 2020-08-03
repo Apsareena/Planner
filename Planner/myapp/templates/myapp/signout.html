@@ -1,0 +1,19 @@
+{% extends 'myapp/header.html' %}
+{% block title %}Sign In{% endblock title %}
+{% block body %}
+<head>
+	
+  
+  	<link rel="stylesheet" type="text/css" href="/static/css/signin.css">
+</head>
+<body>
+	<div class="container">
+		
+			<div class="center" style="margin:auto; margin-top:60px;">
+				
+					<h1 style="color:white">You are logged out</h1>
+					<h2><a href="{%url 'signin'%}"click here to log out></a></h2>
+			</div>
+	</div>
+{% endblock body %}
+</body>

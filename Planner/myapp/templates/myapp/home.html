@@ -1,0 +1,17 @@
+{% extends 'myapp/header.html'%}
+{% block title %}Home Page{% endblock title %}
+
+<head>
+
+<link rel="stylesheet" href="/static/css/home.css">
+</head>
+{% block body %}
+<body>
+	<div class="container">
+		<div class="center">
+			<h1 style="color:white;text-align: left;">Hello! {{request.user}}  welcome to home page</h1>
+			<h2><a href="{%url 'signout'%}">Click here to log out</a></h2>
+		</div>
+	</div>
+</body>
+{% endblock body %}

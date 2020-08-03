@@ -1,0 +1,43 @@
+
+{% extends 'myapp/header.html'%}
+{% block title %}Signup Form{% endblock title %}
+{% block body %}
+<head>
+  
+  <link rel="stylesheet" type="text/css" href="/static/css/signin.css">
+</head>
+<body>
+
+
+<div class="container">
+	<div class="center">
+		<form action="{%url 'signup'%}" method="POST">
+	{% csrf_token %}
+			<div class="col-md-6" style="margin:auto; margin-top:60px; color:white;">
+				<h1 style="color:white">SignUp Form</h1>
+					{% for field in form %}
+						<div class="fieldWrapper">
+
+						{{field.errors}}
+						
+						{{field.label_tag}} {{field}}
+
+						</div>
+						{% endfor %}
+				
+					<!-- 
+
+					{{form.as_p}} --></br>
+					<button type="submit" class="btn btn-success">SignUp</button>
+			</div>
+
+					
+				
+		
+					
+		</form>	
+	</div>
+</div>
+
+{% endblock body %}
+</body>
