@@ -63,6 +63,12 @@ def header(request):
 	return render(request, 'myapp/header.html')
 
 
+def update_todo(request, todo_id):
+	Todo.objects.filter(id=todo_id).delete()
+	todo_items = Todo.objects.all().order_by('-added_date')
+
+	return render(request, 'myapp/todo.html', {'todo_items': todo_items})
+
 
 def lik(request):
 	return render(request, 'myapp/lik.html')
