@@ -21,11 +21,20 @@
 			
 		
     </style>
+
+	<script type="text/javascript">
+			function showMessage(){
+				alert("You can now add an update todo item, the previous has been deleted!!");
+			}
+		</script>	
 	
 </head>
 {% block body %}
 {% block content %}
 <body>
+	
+		
+		
 	<div class="container">
 		<div style="margin:auto; margin-top:30px; padding: 100px">
 		
@@ -50,11 +59,10 @@
 					<ul class="list-group">
 
 				{% for todo_item in todo_items %}
-						<li class="list-group-item">
+						<!-- <li class="list-group-item">
 					
-					{% csrf_token %}
-
-					{{ todo_item.task }}
+					
+						{{ todo_item.task }}
 
 							<div class="float-right">
 						
@@ -62,11 +70,31 @@
 						
 					
 							</div>
-						</li>
+						</li> -->
+						
+							<tr>
+							<div style="color:white">
+							<td>{{todo_item.task}}</td>
+						</div>
+							<div class="float-right">
+							<td><a href="{% url 'delete_todo' todo_item.id %}" class="btn btn-sm btn-danger">Delete</a></td>
+							
+							<td><a href = "{% url 'updt' todo_item.id %}" class="btn btn-sm btn-primary" type="button" id="btnShowMsg" value="Update" onClick='showMessage()'/>Update</a></td>
+						
+							</div>
+						
+					</tr>
+						<!-- </tr> -->
 				{% endfor %}
 					</ul>
 				</div>
 			</div>
+			<script type="text/javascript">
+			function showMessage(){
+				alert("You can update now, the previous one has been deleted!!");
+				
+			}
+		</script>
 	
 		{% endblock content %}
 		</div>
