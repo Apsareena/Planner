@@ -12,6 +12,7 @@ urlpatterns=[
 	path('home/', views.home, name='home'),
 	path('diary/', views.diary, name='diary'),
 	path('delete_todo/<int:todo_id>/', views.delete_todo, name='delete_todo'),
+	path('update_todo/<int:todo_id>/', views.update_todo, name='updt'),
 	
 	
 	]
