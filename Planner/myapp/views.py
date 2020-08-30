@@ -70,5 +70,3 @@ def update_todo(request, todo_id):
 	return render(request, 'myapp/todo.html', {'todo_items': todo_items})
 
 
-def lik(request):
-	return render(request, 'myapp/lik.html')
